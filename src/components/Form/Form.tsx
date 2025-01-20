@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Form.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store";
+import { clearAction, saveAction } from "../../features/textTodo";
 
 const Form = (props: { createNewToDo: Function }) => {
-  const [text, setText] = useState<string>("");
+  const textTodoSlice = useSelector((state: RootState) => state.textTodo.text);
+  // методы по управлению инпутом из стора
+  const dispatch = useDispatch();
 
   const formSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    if (text) {
-      props.createNewToDo(text);
-      setText("");
+    if (textTodoSlice) {
+      props.createNewToDo(textTodoSlice);
+      dispatch(clearAction());
     }
   };
 
@@ -22,8 +27,10 @@ const Form = (props: { createNewToDo: Function }) => {
         <label>
           <input
             type="text"
-            onChange={(event) => setText(event.target.value)}
-            value={text}
+            onChange={(event) => {
+              dispatch(saveAction(event.target.value));
+            }}
+            value={textTodoSlice}
           />
           <button></button>
         </label>
