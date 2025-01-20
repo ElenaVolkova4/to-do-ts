@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import classes from "./Header.module.scss";
 
 const Header = () => {
@@ -10,10 +10,10 @@ const Header = () => {
     <header className={classes.header}>
       <div className={classes.container}>
         <NavLink to="/" className={getActiveClass}>
-          Home
-        </NavLink>
-        <NavLink to="/todo" className={getActiveClass}>
           ToDo
+        </NavLink>
+        <NavLink to="/list" className={getActiveClass}>
+          List
         </NavLink>
       </div>
     </header>

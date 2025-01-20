@@ -1,32 +1,21 @@
-import { useState } from "react";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 
 import Form from "../components/Form/Form";
 import ToDoList from "../components/ToDoList/ToDoList";
 import { IToDo } from "../models/todo-item";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store";
+import { createAction, deleteAction, updateAction } from "../features/todoList";
 
 const ToDoListPage = () => {
-  const [todos, setTodos] = useState<IToDo[]>([
-    {
-      id: 0,
-      text: "Первая задача",
-      isDone: false,
-    },
-    {
-      id: 1,
-      text: "Вторая задача",
-      isDone: true,
-    },
-  ]);
+  // все todos из стора
+  const todoList = useSelector((state: RootState) => state.todoList.todos);
+
+  // методы по управлению todos из стора
+  const dispatch = useDispatch();
 
   const createNewToDo = (text: string) => {
-    const newToDo: IToDo = {
-      id: todos.length + 1,
-      text: text,
-      isDone: false,
-    };
-    // return todos.push(newToDo);
-    setTodos([...todos, newToDo]);
+    dispatch(createAction(text));
 
     // уведомление пользователя
     toast.success("Задача создана", {
@@ -43,17 +32,10 @@ const ToDoListPage = () => {
   };
 
   const updateToDo = (toDoItem: IToDo) => {
-    const newToDos = todos.map((todo) => {
-      if (todo.id === toDoItem.id) {
-        todo.isDone = !todo.isDone;
-      }
-      return todo;
-    });
-
-    setTodos(newToDos);
+    dispatch(updateAction(toDoItem));
 
     // уведомление пользователя
-    toast.success("Задача изменена", {
+    toast.info("Задача изменена", {
       position: "bottom-right",
       autoClose: 3000,
       hideProgressBar: true,
@@ -67,12 +49,10 @@ const ToDoListPage = () => {
   };
 
   const deleteToDo = (toDoItem: IToDo) => {
-    const newToDos = todos.filter((todo) => todo.id !== toDoItem.id);
-
-    setTodos(newToDos);
+    dispatch(deleteAction(toDoItem));
 
     // уведомление пользователя
-    toast.success("Задача удалена", {
+    toast.warn("Задача удалена", {
       position: "bottom-right",
       autoClose: 3000,
       hideProgressBar: true,
@@ -89,7 +69,11 @@ const ToDoListPage = () => {
     <>
       <Form createNewToDo={createNewToDo} />
 
-      <ToDoList todos={todos} updateToDo={updateToDo} deleteToDo={deleteToDo} />
+      <ToDoList
+        todos={todoList}
+        updateToDo={updateToDo}
+        deleteToDo={deleteToDo}
+      />
 
       <ToastContainer
         position="bottom-right"
