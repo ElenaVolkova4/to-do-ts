@@ -4,10 +4,8 @@ import { RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store";
 
-import "./assets/scss/normalize.scss";
-import "./assets/scss/style.scss";
-
 import { router } from "./router";
+import { GlobalStyles } from "./styles/GlobalStyles";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -15,6 +13,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
+      <GlobalStyles />
       {/* новый подход роутинга через RouterProvider, роуты создаются в объекте через createBrowserRouter*/}
       <RouterProvider router={router} />
       {/* устаревший подход роутинга через BrowserRouter, Routes и Route*/}

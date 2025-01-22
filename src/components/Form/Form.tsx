@@ -1,8 +1,15 @@
 import React from "react";
-import "./Form.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { clearAction, saveAction } from "../../features/textTodo";
+import {
+  FormBlock,
+  FormButton,
+  FormInput,
+  FormLabel,
+  Wrapper,
+} from "./Form.styled";
+import plusIcon from "./../../assets/images/plus.png";
 
 const Form = (props: { createNewToDo: Function }) => {
   const textTodoSlice = useSelector((state: RootState) => state.textTodo.text);
@@ -22,20 +29,20 @@ const Form = (props: { createNewToDo: Function }) => {
   // };
 
   return (
-    <div className="form-wrapper">
-      <form action="#" onSubmit={formSubmit}>
-        <label>
-          <input
+    <Wrapper>
+      <FormBlock action="#" onSubmit={formSubmit}>
+        <FormLabel>
+          <FormInput
             type="text"
             onChange={(event) => {
               dispatch(saveAction(event.target.value));
             }}
             value={textTodoSlice}
           />
-          <button></button>
-        </label>
-      </form>
-    </div>
+          <FormButton icon={plusIcon} />
+        </FormLabel>
+      </FormBlock>
+    </Wrapper>
   );
 };
 

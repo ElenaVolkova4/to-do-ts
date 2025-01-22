@@ -1,4 +1,6 @@
-.todo-list-item__wrapper {
+import styled from "styled-components";
+
+export const ToDoItem = styled.li`
   width: 100%;
   min-height: 50px;
   font-size: 14px;
@@ -16,13 +18,15 @@
   margin: 0 0 10px 0;
   padding: 14px;
   word-break: break-word;
-}
 
-.todo-list-item__wrapper:last-child {
-  margin: 0;
-}
+  &:last-child {
+    margin: 0;
+  }
+`;
 
-.todo-list-item__buttons {
+export const ToDoItemText = styled.span``;
+
+export const ToDoItemButtons = styled.div`
   width: 100px;
   height: 50px;
   display: flex;
@@ -30,9 +34,9 @@
   position: absolute;
   top: 0;
   right: 0;
-}
+`;
 
-.todo-list-item__buttons button {
+export const ToDoItemButton = styled.button<{ icon: string }>`
   width: 50px;
   height: 50px;
   background-color: transparent;
@@ -43,27 +47,17 @@
   box-shadow: none;
   outline: none;
   cursor: pointer;
-}
 
-.todo-list-item__buttons button.btn-trash:last-of-type:before {
-  content: "";
-  width: 1px;
-  height: 30px;
-  background: #edf0f1;
+  background-image: url(${(props) => props.icon});
 
-  position: absolute;
-  top: 10px;
-  left: 0;
-}
+  &:last-of-type:before {
+    content: "";
+    width: 1px;
+    height: 30px;
+    background: #edf0f1;
 
-.todo-list-item__buttons button.btn-trash {
-  background-image: url(../../../assets/images/trash.png);
-}
-
-.todo-list-item__buttons button.btn-check {
-  background-image: url(../../../assets/images/check.png);
-}
-
-.todo-list-item__buttons button.btn-uncheck {
-  background-image: url(../../../assets/images/uncheck.png);
-}
+    position: absolute;
+    top: 10px;
+    left: 0;
+  }
+`;

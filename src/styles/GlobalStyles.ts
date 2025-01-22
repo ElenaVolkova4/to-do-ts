@@ -1,4 +1,10 @@
-* {
+import { createGlobalStyle } from "styled-components";
+import normalize from "styled-normalize";
+
+export const GlobalStyles = createGlobalStyle`
+${normalize}
+
+    * {
   box-sizing: border-box;
 }
 
@@ -16,4 +22,5 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-}/*# sourceMappingURL=style.css.map */
+}
+`;

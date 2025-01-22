@@ -8,6 +8,7 @@ const ItemDescription = () => {
   const todoList = useSelector((state: RootState) => state.todoList.todos);
   const { id } = useParams(); // useParams достает динамически параметры
   const navigate = useNavigate();
+
   const [todo, setTodo] = useState<IToDo>();
 
   useEffect(() => {
