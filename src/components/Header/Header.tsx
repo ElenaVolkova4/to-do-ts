@@ -1,7 +1,7 @@
 import { HeaderContainer, HeaderWrapper, NavLink } from "./Header.styled";
 
 const Header = () => {
-  // если стилизовать через содули css
+  // если стилизовать через модули css
   // const getActiveClass = ({ isActive }: { isActive: boolean }): string => {
   //   return isActive ? `${classes.link} ${classes.active}` : classes.link;
   // };
