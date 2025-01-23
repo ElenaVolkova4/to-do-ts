@@ -1,10 +1,20 @@
-import { HeaderContainer, HeaderWrapper, NavLink } from "./Header.styled";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  HeaderContainer,
+  HeaderWrapper,
+  NavLink,
+  ToggleThemeButton,
+} from "./Header.styled";
+import { RootState } from "../../store";
+import { toggleThemeAction } from "../../features/themeList";
 
 const Header = () => {
   // если стилизовать через модули css
   // const getActiveClass = ({ isActive }: { isActive: boolean }): string => {
   //   return isActive ? `${classes.link} ${classes.active}` : classes.link;
   // };
+
+  const dispatch = useDispatch();
 
   return (
     <HeaderWrapper>
@@ -18,6 +28,13 @@ const Header = () => {
           List
         </NavLink> */}
       </HeaderContainer>
+      <ToggleThemeButton
+        onClick={() => {
+          dispatch(toggleThemeAction());
+        }}
+      >
+        toggle
+      </ToggleThemeButton>
     </HeaderWrapper>
   );
 };

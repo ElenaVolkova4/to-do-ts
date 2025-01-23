@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import NotFound from "./pages/404";
-import Lyaout from "./latouts/Lyaout";
+import Lyaout from "./latouts/Layout";
 import ToDoListPage from "./pages/ToDoListPage";
 import ViewList from "./pages/ViewList";
 import ViewListItem from "./pages/ViewListItem";

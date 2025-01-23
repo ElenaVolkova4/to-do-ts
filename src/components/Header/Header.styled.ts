@@ -32,3 +32,9 @@ export const NavLink = styled(BaseNavLink)`
     text-decoration: underline;
   }
 `;
+
+export const ToggleThemeButton = styled.button`
+  position: absolute;
+  right: 0;
+  top: 0;
+`;

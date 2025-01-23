@@ -7,8 +7,9 @@ export const Wrapper = styled.div`
   position: relative;
   padding: 15px;
   z-index: 5;
+  transition: background-color 0.2s;
 
-  background-color: #4682b4;
+  background-color: ${({ theme }) => theme.colors.backgroundPrimary};
   box-shadow: 0 2px 4px rgba(44, 62, 80, 0.15);
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
