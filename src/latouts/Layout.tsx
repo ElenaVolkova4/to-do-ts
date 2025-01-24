@@ -11,7 +11,7 @@ const Lyaout = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <GlobalStyles />
+        <GlobalStyles theme={theme} />
         <Header />
         <Outlet />
       </ThemeProvider>
