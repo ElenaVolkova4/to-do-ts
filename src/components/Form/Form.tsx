@@ -34,7 +34,7 @@ const Form = (props: { createNewToDo: Function }) => {
         <FormLabel>
           <FormInput
             type="text"
-            onChange={(event) => {
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
               dispatch(saveAction(event.target.value));
             }}
             value={textTodoSlice}

@@ -33,7 +33,7 @@ const Header = () => {
           dispatch(toggleThemeAction());
         }}
       >
-        toggle
+        Сменить тему
       </ToggleThemeButton>
     </HeaderWrapper>
   );
