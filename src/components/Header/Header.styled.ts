@@ -7,7 +7,7 @@ export const HeaderWrapper = styled.header`
   right: 0;
   left: 0;
   height: 50px;
-  background-color: #4682b4;
+  background-color: ${({ theme }) => theme.colors.backgroundPrimary};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,8 +33,15 @@ export const NavLink = styled(BaseNavLink)`
   }
 `;
 
-export const ToggleThemeButton = styled.button`
+export const ToggleThemeButton = styled.button<{ icon: string }>`
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 4px;
+  top: 4px;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  background: transparent url(${(props) => props.icon}) no-repeat center/cover;
 `;
