@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/to-do-ts/static/js/main.6e0d6239.js",
+    "static/media/icon-moon.png": "/to-do-ts/static/media/icon-moon.e59392f91a4a26e3b896.png",
+    "static/media/icon-sun.png": "/to-do-ts/static/media/icon-sun.6d48da504f4816188c8d.png",
+    "index.html": "/to-do-ts/index.html",
+    "main.6e0d6239.js.map": "/to-do-ts/static/js/main.6e0d6239.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.6e0d6239.js"
+  ]
+}
