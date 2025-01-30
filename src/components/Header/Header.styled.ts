@@ -8,6 +8,7 @@ export const HeaderWrapper = styled.header`
   left: 0;
   height: 50px;
   background-color: ${({ theme }) => theme.colors.backgroundPrimary};
+  transition: background-color 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,6 +28,8 @@ export const NavLink = styled(BaseNavLink)`
   text-decoration: none;
   padding: 10px;
   color: #fff;
+  font-size: 20px;
+  line-height: 24px;
 
   &.active {
     text-decoration: underline;

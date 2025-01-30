@@ -3,9 +3,9 @@
 Используемые технологии:
 
 - typescript
-- React
+- React 18
 - react-router-dom
-- SCSS (Stuled-components)
+- SCSS (styled-components)
 - Redux-toolkit
 - react-toastify
 
