@@ -34,6 +34,6 @@ export const router = createBrowserRouter(
       path: "*",
       element: <NotFound />,
     },
-  ]
-  // { basename: "/app/" } // если выкладывать на gitpages, то можно оставить, а так можно удалить
+  ],
+  { basename: "/to-do-ts/" } // если выкладывать на ghpages, то можно оставить, а так можно удалить
 );
